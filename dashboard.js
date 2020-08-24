@@ -1,77 +1,50 @@
-/* globals Chart:false, feather:false */
+/* start AOS Library  */
 
-(function () {
-  'use strict'
+/
+AOS.init();
 
-  feather.replace()
+// You can also pass an optional settings object
+// below listed default settings
+AOS.init({
+  // Global settings:
+  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+  initClassName: 'aos-init', // class applied after initialization
+  animatedClassName: 'aos-animate', // class applied on animation
+  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+  
 
-  // Graphs
-  var ctx = document.getElementById('myChart')
-  // eslint-disable-next-line no-unused-vars
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: [
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday'
-      ],
-      datasets: [{
-        data: [
-          15339,
-          21345,
-          18483,
-          24003,
-          23489,
-          24092,
-          12034
-        ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#007bff',
-        borderWidth: 4,
-        pointBackgroundColor: '#007bff'
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: false
-          }
-        }]
-      },
-      legend: {
-        display: false
-      }
-    }
-  })
-}())
+  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+  offset: 120, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 400, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+});
 
 var granimInstance = new Granim({
-  element: '#canvas-image-blending',
-  direction: 'top-bottom',
+  element: '#canvas-complex',
+  direction: 'left-right',
   isPausedWhenNotInView: true,
-  image : {
-      source: '../assets/img/bg-forest.jpg',
-      blendingMode: 'overlay',
-  },
   states : {
       "default-state": {
           gradients: [
-              ['#29323c', '#485563'],
-              ['#FF6B6B', '#556270'],
-              ['#80d3fe', '#7ea0c4'],
-              ['#f0ab51', '#eceba3']
-          ],
-          transitionSpeed: 7000
+              [
+                  { color: '#833ab4', pos: .2 },
+                  { color: '#fd1d1d', pos: .8 },
+                  { color: '#38ef7d', pos: 1 }
+              ], [
+                  { color: '#40e0d0', pos: 0 },
+                  { color: '#ff8c00', pos: .2 },
+                  { color: '#ff0080', pos: .75 }
+              ],
+          ]
       }
   }
 });
-
-
-
