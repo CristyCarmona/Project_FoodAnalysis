@@ -54,4 +54,6 @@ function onClickSubmit () {
   var sel_food = document.getElementById('inlineFormCustomSelect2');
   console.log(sel_category.options[sel.selectedIndex].value)
   console.log(sel_food.options[sel.selectedIndex].value)
+
+  event.preventDefault();
 }
