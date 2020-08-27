@@ -68,34 +68,47 @@
                   </div>
               </div>
             </div>
-                <form class=form-inline>
-                    <div class="container-fluid padding">
-                            <div class="row justify-content-center">
-                            <div class="form-group col-md-4 col-md-offset-5 align-center ">
-                                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" onchange="onChangeCategory(this.value)">
-                                  <option value ="0" selected>Choose category </option>
-                                </select>
-                            </div>
-                        <div class="col-auto my-1">
-                            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect2">
-                            <option value = "0" selected>Choose description</option>
-                            </select>
-                        </div>
-                        <div class="col-auto my-1">
-                            <button type="submit" onclick="onClickSubmit()" class="btn btn-primary">Submit</button>
-                        </div>
-                        </div>
-                    </div>
-                </form>
-                <hr class="my-4">
-        </div>
-         <!-- CATEGORY SMALLEST CALORIES -->
-        <div class="container-fluid padding">
-            <div data-aos="fade-up">
-            <div class="row padding">
-                <div class="col-md-12 col-lg-6">
+          <!-- FOOD ANALYSIS -->
+          <div class="row welcome text-center">
+              <hr>
+              <div class="col-12">
+                  <p class="lead"><a name="analysis">Welcome to our food analysis tool.</a> 
+                      To get started please choose a category and a description and click submit.</p>
+              </div>
+                  <form class=form-inline>
+                      <div class="container-fluid padding">
+                              <div class="row justify-content-center">
+                              <div class="form-group col-md-4 col-md-offset-5 align-center ">
+                                  <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                  <option selected>Choose category </option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                  </select>
+                              </div>
+                          <div class="col-auto my-1">
+                              <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                              <option selected>Choose description</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                              </select>
+                          </div>
+                          <div class="col-auto my-1">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                          </div>
+                      </div>
+                  </form>
+                  <hr class="my-4">
+          </div>                    
+          <!-- CATEGORY SMALLEST CALORIES -->
+          <div class="container-fluid padding">
+              <div data-aos="fade-up">
+              <div class="row padding">
+                  <div class="col-md-12 col-lg-6">
                     <h2>Category {category]:</h2>
                       <p>These are the results for the {category} less than 100 calories..</p> 
                     <img src="https://s3.amazonaws.com/otreva-cdn-3/wp-content/uploads/2011/09/html-css-barchart.jpg" class="img-fluid">
@@ -206,12 +219,6 @@
   </script>
 
 </body>
-
-      <script src="d3.min.js"></script>  
-      <script src="https://d3js.org/d3-request.v1.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-      <script src="dashboard.js"></script></body>
-      <script src="food_analysis.js"></script>
-        
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+        <script src="dashboard.js"></script>
 </html>
