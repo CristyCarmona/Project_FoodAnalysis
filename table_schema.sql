@@ -26,15 +26,23 @@ CREATE TABLE interesting_facts (
 
 SELECT * FROM interesting_facts;
 
-CREATE TABLE food_tbl (
+CREATE TABLE food_catalog (
 	id_food SERIAL PRIMARY KEY,
-	food_desc VARCHAR(200) NOT NULL,
+	food_desc VARCHAR(200) NOT NULL)
+
+CREATE TABLE food_tbl (
+	id_foodtbl SERIAL PRIMARY KEY,
+	id_food INT NOT NULL,
 	id_category INT NOT NULL,
 	id_nutrient INT NOT NULL,
 	nutrient_amount FLOAT,
 	FOREIGN KEY (id_category) REFERENCES food_category(id_category),
+	FOREIGN KEY (id_food) REFERENCES food_catalog(id_food),
 	FOREIGN KEY (id_nutrient) REFERENCES essential_nutrients(id_nutrient));
+	
+
 
 SELECT * FROM food_tbl;
+
 
 
