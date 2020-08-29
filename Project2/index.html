@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Food Analysis</title>
+
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link href="static/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+  </head>
+  <body>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- NAVIGATION BAR -->
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="home"></span>
+              Home 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#analysis">
+              <span data-feather="sliders"></span>
+              Food Analysis <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#facts">
+              <span data-feather="check-square"></span>
+              Essential Nutrient Fact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <!-- HOME  -->
+            <div id="slides" class="carousel slide" data-ride="carousel">
+              <ul class="carousel-indicators">
+                  <li data-target="#slides" data-slide-to="0" class="active"></li>
+                  <li data-target="#slides" data-slide-to="1"></li>
+                  <li data-target="#slides" data-slide-to="2"></li>
+              </ul>
+              <div class="carousel-inner">
+                  <div class="carousel-item active">
+                      <img src="https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322303/selection-of-chinese-food-that-may-cause-chinese-restaurant-syndrome.jpg?w=1155&h=1583">
+                      <div class="carousel-caption">
+                          <h1 class="display-2">Food Analysis</h1>
+                          <h3>Everything you need to know about food nutrients. </h3>
+                          <a href="#analysis"><button type="button" class="btn btn-primary btn-lg"> Start analyzing food </button></a>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <img src="https://tse2.mm.bing.net/th?id=OIP.AlKf8Abq29QdUZ2WAOtuMgHaFS&pid=Api">
+                      <div class="carousel-caption">
+                        <h1 class="display-2">Food Analysis</h1>
+                        <h3>Everything you need to know about food nutrients. </h3>
+                        <a href="#analysis"><button type="button" class="btn btn-primary btn-lg"> Start analyzing food </button></a>
+                    </div>
+                  </div>
+                  <div class="carousel-item ">
+                      <img src="https://tse4.mm.bing.net/th?id=OIP.SvQzpQXikrF8qa0cwZo2CgHaF4&pid=Api">
+                      <div class="carousel-caption">
+                        <h1 class="display-2" style="color: black;">Food Analysis</h1>
+                        <h3 style="color: black;">Everything you need to know about food nutrients. </h3>
+                        <a href="#analysis"><button type="button" class="btn btn-primary btn-lg"> Start analyzing food </button></a>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          <!-- FOOD ANALYSIS -->
+          <div class="row welcome text-center">
+              <hr>
+              <div class="col-12">
+                  <p class="lead"><a name="analysis">Welcome to our food analysis tool.</a> 
+                      To get started please choose a category and a description and click submit.</p>
+              </div>
+                  <form class=form-inline>
+                      <div class="container-fluid padding">
+                          <div class="row justify-content-center">
+                              <div class="form-group col-md-4 col-md-offset-5 align-center ">
+                                  <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" onchange="onChangeCategory(this.value)">
+                                  <option selected>Choose category </option>
+                                  </select>
+                              </div>
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect2">
+                                <option selected>Choose description</option>
+                                </select>
+                              </div>
+                              <div class="col-auto my-1">
+                                <button type="button" class="btn btn-primary" onclick="onClickSubmit()">Submit</button>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+                  <hr class="my-4">
+          </div>                    
+          <!-- CATEGORY SMALLEST CALORIES -->
+          <div class="container-fluid padding">
+              <div data-aos="fade-up">
+              <div class="row padding">
+                  <div class="col-md-12 col-lg-6">
+                    <h2 id="less100k_header"></h2>
+                      <p id="less100k_header_text"></p> 
+                      <div id="bar-plot" class="food_plots"></div>
+                  </div>
+                  <div class="col-md-12 col-lg-6">
+                    <h2 id="histoHeader"></h2>
+                      <p id="histoHeader_text"></p> 
+                      <div id="histogram_plot" class="food_plots"></div>
+                  </div>
+              </div>
+          </div>
+              <hr class="my-4">
+          </div>
+
+          <!-- FAT COMPOSITION, MINERALS AND VITAMINS  -->
+          <div class="container-fluid padding">
+              <div data-aos="fade-up">
+                <h2 id="radarHeader" style="text-align-last: center;"></h2>
+                <div class="row text-center padding">
+                  <div class="col-xs-12 col-sm-12 col-md-4">
+                      <h3>FAT COMPOSITION </h3>
+                      <div id="fat_radar" class="food_plots"></div>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-4">
+                      <h3>MAJOR MINERALS</h3>
+                      <div id="minerals_radar" class="food_plots"></div>
+                  </div>
+                  <div class="col-sm-12 col-md-4">
+                      <h3>VITAMINS</h3>
+                      <div id="vitamins_radar" class="food_plots"></div>
+                  </div>
+                </div>
+            </div>
+            <hr class="my-4">
+          </div>
+        <!-- TABLE  -->
+        <h2 id="nut_fact_header"></h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-sm table-hover">
+            <tbody id="food_table">
+            </tbody>
+          </table>
+        </div>
+      
+          <!-- ESSENTIAL NUTRIENTS -->
+
+        <div class="container">
+          <div class="jumbotron">
+            <h1 class="display-4"><a name="facts"></a><strong>Hey! Want to know more about essential nutrients? </strong></h1>
+            <p class="lead">Just choose the essential nutrient of your choice and we will give you a random fact. </p>
+            <hr class="my-4">
+            <div class="row justify-content-center">
+              <div class="form-group col-md-4 col-md-offset-5 align-left ">
+                  <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect3">
+                  <option selected>Choose Essential Nutrient </option>
+                  </select>
+              </div>
+              <div class="col-auto my-1">
+                <button type="button" class="btn btn-primary" onclick="onClickFact()">Learn More</button>
+              </div>
+            </div>
+            <br>            
+            <p id="nut_fact"></p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <footer>
+      <div class="container-fluid padding">
+          <div class="row text-center">
+              <div class="col-12">
+                  <h5> A website for Data Visualization Program 2020 </h5>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+</body>
+        <script src="static/js/d3.min.js"></script>  
+        <script src="https://d3js.org/d3-request.v1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+
+        <!-- Bootstrap dependecies start: -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Bootstrap dependecies end: -->
+
+        <script src="static/js/dashboard.js"></script>
+        <script src="static/js/food_analysis.js"></script>
+        <script>
+          AOS.init();
+          // Initialize the html
+      
+          // function init_page(){
+          //   document.getElementById("inlineFormCustomSelect").selectedIndex="1";
+          // }
+          
+          // init_page();
+      
+          
+        </script>
+
+</html>
