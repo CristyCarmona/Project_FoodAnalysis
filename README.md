@@ -24,3 +24,4 @@ Food Data source.- https://corgis-edu.github.io/corgis/csv/food/
 ![Coding Aproach](https://user-images.githubusercontent.com/64176733/91760255-dd0dc180-eb87-11ea-9509-d01330a68370.png)
 
 ## Database table schema
+![database_diagram](https://user-images.githubusercontent.com/64176733/91761250-6bcf0e00-eb89-11ea-8489-f334b752c570.png)
