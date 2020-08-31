@@ -12,13 +12,15 @@ category data set. Additionally, so that the user understands the contribution o
 fats to answer questions on why each of these nutrients is important on our bodies.                        
 
 ## Dependencies and Setup
-* For managing the calls to the APIs: time, requests 
-* For reading csv files: os, csv
-* For dataframes and lists: pandas, numpy
-* For figures and maps:  matplotlib.pyplot, from scipy.stats - linregress, from matplotlib.pyplot - figure, googlemaps and gmaps 
+* For managing the API: python Flask, json, CORS from flask_cors and create_engine from sqlalchemy.    
+* For ETL: pandas and create_engine from sqlalchemy
+* For HTML: PLotly, D3.js, Bootstrap and AOS.js
 
 ## Resources
 Food Data source.- https://corgis-edu.github.io/corgis/csv/food/
 
+
 ## Coding Approach 
 ![Coding Aproach](https://user-images.githubusercontent.com/64176733/91760255-dd0dc180-eb87-11ea-9509-d01330a68370.png)
+
+## Database table schema
