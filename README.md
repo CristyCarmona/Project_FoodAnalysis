@@ -21,4 +21,4 @@ fats to answer questions on why each of these nutrients is important on our bodi
 Food Data source.- https://corgis-edu.github.io/corgis/csv/food/
 
 ## Coding Approach 
-
+![Coding Aproach](https://user-images.githubusercontent.com/64176733/91760255-dd0dc180-eb87-11ea-9509-d01330a68370.png)
